@@ -1,0 +1,25 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<div class="flexslider">
+		<ul class="slides">
+			<f:for each="{sliders}" as="slider">
+				<li>
+					<div class="container">
+						<div class="flexImage">
+							<f:image image="{slider.image}" alt="{f:if(condition: image.title, then: '{image.title}', else: slider.title)}" width="{settings.image.width}" height="{settings.image.height}" minWidth="{settings.image.minWidth}" maxWidth="{settings.image.maxWidth}" minHeight="{settings.image.minHeight}" maxHeight="{settings.image.maxHeight}" />
+						</div>
+						<div class="flexHeader">{slider.title}</div>
+						<div class="flexLinks">
+							<ul>
+								<f:for each="{slider.links}" as="link">
+									<li><f:link.page pageUid="{link.link}">{link.title}</f:link.page></li>
+								</f:for>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</f:for>
+		</ul>
+	</div>
+</f:section>

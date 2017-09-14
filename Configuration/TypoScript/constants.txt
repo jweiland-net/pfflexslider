@@ -1,0 +1,25 @@
+plugin.tx_pfflexslider {
+	view {
+		# cat=plugin.tx_pfflexslider/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:pfflexslider/Resources/Private/Templates/
+		# cat=plugin.tx_pfflexslider/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:pfflexslider/Resources/Private/Partials/
+		# cat=plugin.tx_pfflexslider/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:pfflexslider/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_pfflexslider//a; type=string; label=Default storage PID
+		storagePid =
+	}
+	settings {
+		# cat=plugin.tx_pfflexslider/enable/a; type=boolean; label=Include jQuery library
+		loadJQuery = 1
+		# cat=plugin.tx_pfflexslider/enable/b; type=boolean; label=Include flexslider library
+		loadFlexSlider = 1
+
+		# cat=plugin.tx_pfflexslider/dims/a; type=int+; label=Image width
+		image.width = 400
+		# cat=plugin.tx_pfflexslider/dims/b; type=int+; label=Image height
+		image.height = 250
+	}
+}

@@ -1,0 +1,39 @@
+page.includeJSlibs {
+  pfflexslider-jquery = //ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+  pfflexslider-jquery.external = 1
+  pfflexslider-jquery.if.isTrue = {$plugin.tx_pfflexslider.settings.loadJQuery}
+
+  pfflexslider-flexslider = EXT:pfflexslider/Resources/Public/FlexSlider/jquery.flexslider-min.js
+  pfflexslider-flexslider.if.isTrue = {$plugin.tx_pfflexslider.settings.loadFlexSlider}
+
+  pfflexslider-main = EXT:pfflexslider/Resources/Public/JavaScript/Main.js
+}
+
+page.includeCSS {
+	pfflexslider-main = EXT:pfflexslider/Resources/Public/FlexSlider/flexslider.css
+}
+
+plugin.tx_pfflexslider {
+	view {
+		templateRootPath = {$plugin.tx_pfflexslider.view.templateRootPath}
+		partialRootPath = {$plugin.tx_pfflexslider.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_pfflexslider.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_pfflexslider.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+	settings {
+		image {
+			width = {$plugin.tx_pfflexslider.settings.image.width}c
+			height = {$plugin.tx_pfflexslider.settings.image.height}c
+			maxWidth = {$plugin.tx_pfflexslider.settings.image.width}
+			minWidth = {$plugin.tx_pfflexslider.settings.image.width}
+			maxHeight = {$plugin.tx_pfflexslider.settings.image.height}
+			minHeight = {$plugin.tx_pfflexslider.settings.image.height}
+		}
+	}
+}
