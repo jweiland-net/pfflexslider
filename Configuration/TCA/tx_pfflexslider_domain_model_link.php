@@ -164,14 +164,5 @@ return [
                 'type' => 'passthrough'
             ]
         ]
-<<<<<<< HEAD
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, link, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime']
-    ],
-    'palettes' => [
-        '1' => ['showitem' => '']
-=======
->>>>>>> Update TYPO3 TCA fields to new version
     ]
 ];
