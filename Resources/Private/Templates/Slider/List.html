@@ -7,7 +7,18 @@
 				<li>
 					<div class="container">
 						<div class="flexImage">
-							<f:image image="{slider.image}" alt="{f:if(condition: image.title, then: '{image.title}', else: slider.title)}" width="{settings.image.width}" height="{settings.image.height}" minWidth="{settings.image.minWidth}" maxWidth="{settings.image.maxWidth}" minHeight="{settings.image.minHeight}" maxHeight="{settings.image.maxHeight}" />
+							<f:for each="{slider.image}" as="image" iteration="iterator">
+								<f:if condition="{iterator.isFirst}">
+									<f:image image="{image}"
+													 alt="{f:if(condition: image.title, then: '{image.title}', else: slider.title)}"
+													 width="{settings.image.width}"
+													 height="{settings.image.height}"
+													 minWidth="{settings.image.minWidth}"
+													 maxWidth="{settings.image.maxWidth}"
+													 minHeight="{settings.image.minHeight}"
+													 maxHeight="{settings.image.maxHeight}" />
+								</f:if>
+							</f:for>
 						</div>
 						<div class="flexHeader">{slider.title}</div>
 						<div class="flexLinks">
