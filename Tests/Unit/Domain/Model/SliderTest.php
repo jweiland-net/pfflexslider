@@ -1,149 +1,194 @@
 <?php
 
+/*
+ * This file is part of the package jweiland/pfflexslider.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace JWeiland\Pfflexslider\Tests\Unit\Domain\Model;
 
-/***************************************************************
- *  Copyright notice
- *
- *  (c) 2014 Stefan Froemken <projects@jweiland.net>, www.jweiland.net
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+use JWeiland\Pfflexslider\Domain\Model\Link;
+use JWeiland\Pfflexslider\Domain\Model\Slider;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Test case for class \JWeiland\Pfflexslider\Domain\Model\Slider.
- *
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
- * @author Stefan Froemken <projects@jweiland.net>
+ * Test case
  */
-class SliderTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
-	/**
-	 * @var \JWeiland\Pfflexslider\Domain\Model\Slider
-	 */
-	protected $subject = NULL;
+class SliderTest extends UnitTestCase
+{
+    /**
+     * @var Slider
+     */
+    protected $subject;
 
-	protected function setUp() {
-		$this->subject = new \JWeiland\Pfflexslider\Domain\Model\Slider();
-	}
+    protected function setUp()
+    {
+        $this->subject = new Slider();
+    }
 
-	protected function tearDown() {
-		unset($this->subject);
-	}
+    protected function tearDown()
+    {
+        unset(
+            $this->subject
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function getImageReturnsInitialValueForFileReference() {
-		$this->assertEquals(
-			NULL,
-			$this->subject->getImage()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getImageInitiallyReturnsObjectStorage()
+    {
+        self::assertEquals(
+            new ObjectStorage(),
+            $this->subject->getImage()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function setImageForFileReferenceSetsImage() {
-		$fileReferenceFixture = new \TYPO3\CMS\Extbase\Domain\Model\FileReference();
-		$this->subject->setImage($fileReferenceFixture);
+    /**
+     * @test
+     */
+    public function setImageSetsImage()
+    {
+        $object = new FileReference();
+        $objectStorage = new ObjectStorage();
+        $objectStorage->attach($object);
+        $this->subject->setImage($objectStorage);
 
-		$this->assertAttributeEquals(
-			$fileReferenceFixture,
-			'image',
-			$this->subject
-		);
-	}
+        self::assertSame(
+            $objectStorage,
+            $this->subject->getImage()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function getTitleReturnsInitialValueForString() {
-		$this->assertSame(
-			'',
-			$this->subject->getTitle()
-		);
-	}
+    /**
+     * @test
+     */
+    public function addImageAddsOneImage()
+    {
+        $objectStorage = new ObjectStorage();
+        $this->subject->setImage($objectStorage);
 
-	/**
-	 * @test
-	 */
-	public function setTitleForStringSetsTitle() {
-		$this->subject->setTitle('Conceived at T3CON10');
+        $object = new FileReference();
+        $this->subject->addImage($object);
 
-		$this->assertAttributeEquals(
-			'Conceived at T3CON10',
-			'title',
-			$this->subject
-		);
-	}
+        $objectStorage->attach($object);
 
-	/**
-	 * @test
-	 */
-	public function getLinksReturnsInitialValueForLink() {
-		$newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->assertEquals(
-			$newObjectStorage,
-			$this->subject->getLinks()
-		);
-	}
+        self::assertSame(
+            $objectStorage,
+            $this->subject->getImage()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function setLinksForObjectStorageContainingLinkSetsLinks() {
-		$link = new \JWeiland\Pfflexslider\Domain\Model\Link();
-		$objectStorageHoldingExactlyOneLinks = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$objectStorageHoldingExactlyOneLinks->attach($link);
-		$this->subject->setLinks($objectStorageHoldingExactlyOneLinks);
+    /**
+     * @test
+     */
+    public function removeImageRemovesOneImage()
+    {
+        $object = new FileReference();
+        $objectStorage = new ObjectStorage();
+        $objectStorage->attach($object);
+        $this->subject->setImage($objectStorage);
 
-		$this->assertAttributeEquals(
-			$objectStorageHoldingExactlyOneLinks,
-			'links',
-			$this->subject
-		);
-	}
+        $this->subject->removeImage($object);
+        $objectStorage->detach($object);
 
-	/**
-	 * @test
-	 */
-	public function addLinkToObjectStorageHoldingLinks() {
-		$link = new \JWeiland\Pfflexslider\Domain\Model\Link();
-		$linksObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('attach'), array(), '', FALSE);
-		$linksObjectStorageMock->expects($this->once())->method('attach')->with($this->equalTo($link));
-		$this->inject($this->subject, 'links', $linksObjectStorageMock);
+        self::assertSame(
+            $objectStorage,
+            $this->subject->getImage()
+        );
+    }
 
-		$this->subject->addLink($link);
-	}
+    /**
+     * @test
+     */
+    public function getTitleReturnsInitialValueForString()
+    {
+        self::assertSame(
+            '',
+            $this->subject->getTitle()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function removeLinkFromObjectStorageHoldingLinks() {
-		$link = new \JWeiland\Pfflexslider\Domain\Model\Link();
-		$linksObjectStorageMock = $this->getMock('TYPO3\\CMS\\Extbase\\Persistence\\ObjectStorage', array('detach'), array(), '', FALSE);
-		$linksObjectStorageMock->expects($this->once())->method('detach')->with($this->equalTo($link));
-		$this->inject($this->subject, 'links', $linksObjectStorageMock);
+    /**
+     * @test
+     */
+    public function setTitleForStringSetsTitle()
+    {
+        $this->subject->setTitle('Conceived at T3CON10');
 
-		$this->subject->removeLink($link);
+        self::assertAttributeEquals(
+            'Conceived at T3CON10',
+            'title',
+            $this->subject
+        );
+    }
 
-	}
+    /**
+     * @test
+     */
+    public function getLinksInitiallyReturnsObjectStorage()
+    {
+        self::assertEquals(
+            new ObjectStorage(),
+            $this->subject->getLinks()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setLinksSetsLinks()
+    {
+        $object = new Link();
+        $objectStorage = new ObjectStorage();
+        $objectStorage->attach($object);
+        $this->subject->setLinks($objectStorage);
+
+        self::assertSame(
+            $objectStorage,
+            $this->subject->getLinks()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function addLinkAddsOneLink()
+    {
+        $objectStorage = new ObjectStorage();
+        $this->subject->setLinks($objectStorage);
+
+        $object = new Link();
+        $this->subject->addLink($object);
+
+        $objectStorage->attach($object);
+
+        self::assertSame(
+            $objectStorage,
+            $this->subject->getLinks()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function removeLinkRemovesOneLink()
+    {
+        $object = new Link();
+        $objectStorage = new ObjectStorage();
+        $objectStorage->attach($object);
+        $this->subject->setLinks($objectStorage);
+
+        $this->subject->removeLink($object);
+        $objectStorage->detach($object);
+
+        self::assertSame(
+            $objectStorage,
+            $this->subject->getLinks()
+        );
+    }
 }

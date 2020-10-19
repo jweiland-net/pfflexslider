@@ -1,96 +1,120 @@
 <?php
 
+/*
+ * This file is part of the package jweiland/pfflexslider.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 namespace JWeiland\Pfflexslider\Tests\Unit\Domain\Model;
 
-/***************************************************************
- *  Copyright notice
- *
- *  (c) 2014 Stefan Froemken <projects@jweiland.net>, www.jweiland.net
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+use JWeiland\Pfflexslider\Domain\Model\Link;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
- * Test case for class \JWeiland\Pfflexslider\Domain\Model\Link.
- *
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
- * @author Stefan Froemken <projects@jweiland.net>
+ * Test case
  */
-class LinkTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
-	/**
-	 * @var \JWeiland\Pfflexslider\Domain\Model\Link
-	 */
-	protected $subject = NULL;
+class LinkTest extends UnitTestCase
+{
+    /**
+     * @var Link
+     */
+    protected $subject;
 
-	protected function setUp() {
-		$this->subject = new \JWeiland\Pfflexslider\Domain\Model\Link();
-	}
+    protected function setUp()
+    {
+        $this->subject = new Link();
+    }
 
-	protected function tearDown() {
-		unset($this->subject);
-	}
+    protected function tearDown()
+    {
+        unset(
+            $this->subject
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function getTitleReturnsInitialValueForString() {
-		$this->assertSame(
-			'',
-			$this->subject->getTitle()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getTitleInitiallyReturnsEmptyString()
+    {
+        self::assertSame(
+            '',
+            $this->subject->getTitle()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function setTitleForStringSetsTitle() {
-		$this->subject->setTitle('Conceived at T3CON10');
+    /**
+     * @test
+     */
+    public function setTitleSetsTitle()
+    {
+        $this->subject->setTitle('foo bar');
 
-		$this->assertAttributeEquals(
-			'Conceived at T3CON10',
-			'title',
-			$this->subject
-		);
-	}
+        self::assertSame(
+            'foo bar',
+            $this->subject->getTitle()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function getLinkReturnsInitialValueForString() {
-		$this->assertSame(
-			'',
-			$this->subject->getLink()
-		);
-	}
+    /**
+     * @test
+     */
+    public function setTitleWithIntegerResultsInString()
+    {
+        $this->subject->setTitle(123);
+        self::assertSame('123', $this->subject->getTitle());
+    }
 
-	/**
-	 * @test
-	 */
-	public function setLinkForStringSetsLink() {
-		$this->subject->setLink('Conceived at T3CON10');
+    /**
+     * @test
+     */
+    public function setTitleWithBooleanResultsInString()
+    {
+        $this->subject->setTitle(true);
+        self::assertSame('1', $this->subject->getTitle());
+    }
 
-		$this->assertAttributeEquals(
-			'Conceived at T3CON10',
-			'link',
-			$this->subject
-		);
-	}
+    /**
+     * @test
+     */
+    public function getLinkInitiallyReturnsEmptyString()
+    {
+        self::assertSame(
+            '',
+            $this->subject->getLink()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setLinkSetsLink()
+    {
+        $this->subject->setLink('foo bar');
+
+        self::assertSame(
+            'foo bar',
+            $this->subject->getLink()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setLinkWithIntegerResultsInString()
+    {
+        $this->subject->setLink(123);
+        self::assertSame('123', $this->subject->getLink());
+    }
+
+    /**
+     * @test
+     */
+    public function setLinkWithBooleanResultsInString()
+    {
+        $this->subject->setLink(true);
+        self::assertSame('1', $this->subject->getLink());
+    }
 }
