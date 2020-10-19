@@ -35,11 +35,6 @@ plugin.tx_pfflexslider {
     storagePid = {$plugin.tx_pfflexslider.persistence.storagePid}
   }
 
-  features {
-    # uncomment the following line to enable the new Property Mapper.
-    # rewrittenPropertyMapper = 1
-  }
-
   settings {
     image {
       width = {$plugin.tx_pfflexslider.settings.image.width}c
