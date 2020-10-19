@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfflexslider\Domain\Model;
 
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -51,6 +52,15 @@ class Slider extends AbstractEntity
         $this->image = $image;
     }
 
+    public function addImage(FileReference $image): void
+    {
+        $this->image->attach($image);
+    }
+
+    public function removeImage(FileReference $image): void
+    {
+        $this->image->detach($image);
+    }
     public function getTitle(): string
     {
         return $this->title;
@@ -76,8 +86,8 @@ class Slider extends AbstractEntity
         $this->links->attach($link);
     }
 
-    public function removeLink(Link $linkToRemove): void
+    public function removeLink(Link $link): void
     {
-        $this->links->detach($linkToRemove);
+        $this->links->detach($link);
     }
 }
