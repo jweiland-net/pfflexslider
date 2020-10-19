@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfflexslider\Domain\Model;
 
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -32,7 +33,7 @@ class Slider extends AbstractEntity
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\Pfflexslider\Domain\Model\Link>
-     * @cascade remove
+     * @Extbase\ORM\Cascade("remove")
      */
     protected $links;
 
