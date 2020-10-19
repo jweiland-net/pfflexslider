@@ -17,6 +17,10 @@
 				<source>Image</source>
 				<target>Bild</target>
 			</trans-unit>
+			<trans-unit id="tx_pfflexslider_domain_model_slider.image.add">
+				<source>Add image</source>
+				<target>Bild hinzufügen</target>
+			</trans-unit>
 			<trans-unit id="tx_pfflexslider_domain_model_slider.title">
 				<source>Title</source>
 				<target>Titel</target>
