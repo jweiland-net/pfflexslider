@@ -20,9 +20,6 @@ return [
             'endtime' => 'endtime'
         ],
         'searchFields' => 'title',
-        'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath(
-            'pfflexslider'
-        ) . 'Configuration/TCA/Link.php',
         'iconfile' => 'EXT:pfflexslider/Resources/Public/Icons/tx_pfflexslider_domain_model_link.gif'
     ],
     'interface' => [
@@ -30,12 +27,13 @@ return [
     ],
     'types' => [
         '1' => [
-            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, link,
+            'showitem' => '--palette--;;languageHidden, title, link,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
         ]
     ],
     'palettes' => [
+        'languageHidden' => ['showitem' => 'sys_language_uid, l10n_parent, hidden'],
         'access' => [
             'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
         ]
@@ -43,14 +41,14 @@ return [
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'special' => 'languages',
                 'items' => [
                     [
-                        'LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages',
+                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
                         -1,
                         'flags-multiple'
                     ],
@@ -60,53 +58,72 @@ return [
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => true,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['', 0],
+                    [
+                        '',
+                        0
+                    ]
                 ],
                 'foreign_table' => 'tx_pfflexslider_domain_model_link',
                 'foreign_table_where' => 'AND tx_pfflexslider_domain_model_link.pid=###CURRENT_PID### AND tx_pfflexslider_domain_model_link.sys_language_uid IN (-1,0)',
-                'showIconTable' => false,
-                'default' => 0,
+                'default' => 0
             ]
         ],
-        'l10n_diffsource' => [
+        'l10n_source' => [
             'config' => [
-                'type' => 'passthrough',
-                'default' => ''
-            ]
-        ],
-        't3ver_label' => [
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
-            'config' => [
-                'type' => 'input',
-                'size' => '30',
-                'max' => '255'
+                'type' => 'passthrough'
             ]
         ],
         'hidden' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
             'config' => [
                 'type' => 'check',
+                'renderType' => 'checkboxToggle',
                 'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:hidden.I.0'
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
                     ]
-                ]
+                ],
+            ]
+        ],
+        'cruser_id' => [
+            'label' => 'cruser_id',
+            'config' => [
+                'type' => 'passthrough'
+            ]
+        ],
+        'pid' => [
+            'label' => 'pid',
+            'config' => [
+                'type' => 'passthrough'
+            ]
+        ],
+        'crdate' => [
+            'label' => 'crdate',
+            'config' => [
+                'type' => 'passthrough',
+            ]
+        ],
+        'tstamp' => [
+            'label' => 'tstamp',
+            'config' => [
+                'type' => 'passthrough',
             ]
         ],
         'starttime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
-                'size' => '13',
-                'eval' => 'datetime',
+                'renderType' => 'inputDateTime',
+                'eval' => 'datetime,int',
                 'default' => 0
             ],
             'l10n_mode' => 'exclude',
@@ -114,11 +131,11 @@ return [
         ],
         'endtime' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
-                'size' => '13',
-                'eval' => 'datetime',
+                'renderType' => 'inputDateTime',
+                'eval' => 'datetime,int',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
@@ -141,22 +158,10 @@ return [
             'label' => 'LLL:EXT:pfflexslider/Resources/Private/Language/locallang_db.xlf:tx_pfflexslider_domain_model_link.link',
             'config' => [
                 'type' => 'input',
-                'size' => 30,
+                'renderType' => 'inputLink',
+                'size' => 50,
+                'max' => 1024,
                 'eval' => 'trim',
-                'wizards' => [
-                    '_PADDING' => 2,
-                    'link' => [
-                        'type' => 'popup',
-                        'title' => 'Link',
-                        'icon' => 'link_popup.gif',
-                        'script' => 'browse_links.php?mode=wizard',
-                        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
-                        'module' => [
-                            'name' => 'wizard_link'
-                        ]
-                    ]
-                ],
-                'softref' => 'typolink[linkList]'
             ]
         ],
         'slider' => [
