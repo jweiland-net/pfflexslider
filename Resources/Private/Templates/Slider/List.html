@@ -24,7 +24,9 @@
 						<div class="flexLinks">
 							<ul>
 								<f:for each="{slider.links}" as="link">
-									<li><f:link.page pageUid="{link.link}">{link.title}</f:link.page></li>
+									<li>
+										<f:link.typolink parameter="{link.link}">{link.title}</f:link.typolink>
+									</li>
 								</f:for>
 							</ul>
 						</div>
