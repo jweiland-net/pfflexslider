@@ -1,6 +1,5 @@
 page.includeJSlibs {
-  pfflexslider-jquery = //ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
-  pfflexslider-jquery.external = 1
+  pfflexslider-jquery = EXT:pfflexslider/Resources/Public/JavaScript/jquery-3.5.1.min.js
   pfflexslider-jquery.if.isTrue = {$plugin.tx_pfflexslider.settings.loadJQuery}
 
   pfflexslider-flexslider = EXT:pfflexslider/Resources/Public/FlexSlider/jquery.flexslider-min.js
