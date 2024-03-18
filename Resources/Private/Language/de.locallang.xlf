@@ -3,33 +3,33 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2014-08-05T10:15:14Z" product-name="pfflexslider" target-language="de">
     <header/>
     <body>
-      <trans-unit id="tx_pfflexslider_domain_model_slider">
+      <trans-unit id="tx_pfflexslider_domain_model_slider" approved="yes">
         <source>Slider</source>
-        <target state="needs-translation">Slider</target>
+        <target state="final">Slider</target>
       </trans-unit>
-      <trans-unit id="tx_pfflexslider_domain_model_slider.image">
+      <trans-unit id="tx_pfflexslider_domain_model_slider.image" approved="yes">
         <source>Image</source>
-        <target state="needs-translation">Image</target>
+        <target state="final">Bild</target>
       </trans-unit>
-      <trans-unit id="tx_pfflexslider_domain_model_slider.title">
+      <trans-unit id="tx_pfflexslider_domain_model_slider.title" approved="yes">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="final">Titel</target>
       </trans-unit>
-      <trans-unit id="tx_pfflexslider_domain_model_slider.links">
+      <trans-unit id="tx_pfflexslider_domain_model_slider.links" approved="yes">
         <source>Links</source>
-        <target state="needs-translation">Links</target>
+        <target state="final">Links</target>
       </trans-unit>
-      <trans-unit id="tx_pfflexslider_domain_model_link">
+      <trans-unit id="tx_pfflexslider_domain_model_link" approved="yes">
         <source>Link</source>
-        <target state="needs-translation">Link</target>
+        <target state="final">Link</target>
       </trans-unit>
-      <trans-unit id="tx_pfflexslider_domain_model_link.title">
+      <trans-unit id="tx_pfflexslider_domain_model_link.title" approved="yes">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="final">Titel</target>
       </trans-unit>
-      <trans-unit id="tx_pfflexslider_domain_model_link.link">
+      <trans-unit id="tx_pfflexslider_domain_model_link.link" approved="yes">
         <source>Link</source>
-        <target state="needs-translation">Link</target>
+        <target state="final">Link</target>
       </trans-unit>
     </body>
   </file>
