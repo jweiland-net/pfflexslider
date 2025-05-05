@@ -1,48 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2014-08-05T10:15:14Z" product-name="pfflexslider">
-		<header/>
-		<body>
-
-			<trans-unit id="plugin.title">
-				<source>Slider with Image, Title and Links</source>
-				<target>Slider mit Bild, Überschrift und Links</target>
-			</trans-unit>
-
-			<trans-unit id="tx_pfflexslider_domain_model_slider">
-				<source>Slider with Image, Title and Links</source>
-				<target>Slider mit Bild, Überschrift und Links</target>
-			</trans-unit>
-			<trans-unit id="tx_pfflexslider_domain_model_slider.image">
-				<source>Image</source>
-				<target>Bild</target>
-			</trans-unit>
-			<trans-unit id="tx_pfflexslider_domain_model_slider.image.add">
-				<source>Add image</source>
-				<target>Bild hinzufügen</target>
-			</trans-unit>
-			<trans-unit id="tx_pfflexslider_domain_model_slider.title">
-				<source>Title</source>
-				<target>Titel</target>
-			</trans-unit>
-			<trans-unit id="tx_pfflexslider_domain_model_slider.links">
-				<source>Links</source>
-				<target>Links</target>
-			</trans-unit>
-
-			<trans-unit id="tx_pfflexslider_domain_model_link">
-				<source>Link</source>
-				<target>Link</target>
-			</trans-unit>
-			<trans-unit id="tx_pfflexslider_domain_model_link.title">
-				<source>Title</source>
-				<target>Titel</target>
-			</trans-unit>
-			<trans-unit id="tx_pfflexslider_domain_model_link.link">
-				<source>Link</source>
-				<target>Link</target>
-			</trans-unit>
-
-		</body>
-	</file>
+  <file source-language="en" datatype="plaintext" original="messages" date="2014-08-05T10:15:14Z" product-name="pfflexslider" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="plugin.title" approved="yes">
+        <source>Slider with Image, Title and Links</source>
+        <target state="final">Slider mit Bild, Titel und Links</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider" approved="yes">
+        <source>Slider with Image, Title and Links</source>
+        <target state="final">Slider mit Bild, Titel und Links</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider.image" approved="yes">
+        <source>Image</source>
+        <target state="final">Bild</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider.image.add" approved="yes">
+        <source>Add image</source>
+        <target state="final">Bild hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider.links" approved="yes">
+        <source>Links</source>
+        <target state="final">Links</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_link" approved="yes">
+        <source>Link</source>
+        <target state="final">Link</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_link.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_link.link" approved="yes">
+        <source>Link</source>
+        <target state="final">Link</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
