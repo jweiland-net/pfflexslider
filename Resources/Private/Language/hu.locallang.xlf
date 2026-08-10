@@ -5,31 +5,31 @@
     <body>
       <trans-unit id="tx_pfflexslider_domain_model_slider">
         <source>Slider</source>
-        <target state="needs-translation">Slider</target>
+        <target state="translated">Diavetítő</target>
       </trans-unit>
       <trans-unit id="tx_pfflexslider_domain_model_slider.image">
         <source>Image</source>
-        <target state="needs-translation">Image</target>
+        <target state="translated">Kép</target>
       </trans-unit>
       <trans-unit id="tx_pfflexslider_domain_model_slider.title">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="translated">Cím</target>
       </trans-unit>
       <trans-unit id="tx_pfflexslider_domain_model_slider.links">
         <source>Links</source>
-        <target state="needs-translation">Links</target>
+        <target state="translated">Hivatkozások</target>
       </trans-unit>
       <trans-unit id="tx_pfflexslider_domain_model_link">
         <source>Link</source>
-        <target state="needs-translation">Link</target>
+        <target state="translated">Hivatkozás</target>
       </trans-unit>
       <trans-unit id="tx_pfflexslider_domain_model_link.title">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="translated">Cím</target>
       </trans-unit>
       <trans-unit id="tx_pfflexslider_domain_model_link.link">
         <source>Link</source>
-        <target state="needs-translation">Link</target>
+        <target state="translated">Hivatkozás</target>
       </trans-unit>
     </body>
   </file>
