@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2014-08-05T10:15:14Z" product-name="pfflexslider" target-language="hu">
+    <header/>
+    <body>
+      <trans-unit id="tx_pfflexslider_domain_model_slider">
+        <source>Slider</source>
+        <target state="translated">Diavetítő</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider.image">
+        <source>Image</source>
+        <target state="translated">Kép</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider.title">
+        <source>Title</source>
+        <target state="translated">Cím</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider.links">
+        <source>Links</source>
+        <target state="translated">Hivatkozások</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_link">
+        <source>Link</source>
+        <target state="translated">Hivatkozás</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_link.title">
+        <source>Title</source>
+        <target state="translated">Cím</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_link.link">
+        <source>Link</source>
+        <target state="translated">Hivatkozás</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

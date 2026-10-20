@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2014-08-05T10:15:14Z" product-name="pfflexslider" target-language="t3">
+    <header/>
+    <body>
+      <trans-unit id="tx_pfflexslider_domain_model_slider">
+        <source>Slider</source>
+        <target>crwdns308474:0crwdne308474:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider.image">
+        <source>Image</source>
+        <target>crwdns308476:0crwdne308476:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider.title">
+        <source>Title</source>
+        <target>crwdns308478:0crwdne308478:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_slider.links">
+        <source>Links</source>
+        <target>crwdns308480:0crwdne308480:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_link">
+        <source>Link</source>
+        <target>crwdns308482:0crwdne308482:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_link.title">
+        <source>Title</source>
+        <target>crwdns308484:0crwdne308484:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfflexslider_domain_model_link.link">
+        <source>Link</source>
+        <target>crwdns308486:0crwdne308486:0</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
